@@ -37,25 +37,17 @@ def combine_all_csv_files(csv_files):
 
 
 def is_space(combined):
-    # combined
-    # import pandas as pd
-    # data = pd.read_csv('combined.csv', delimiter=',')
-    # import csv
-    # with open('combined.csv','r',newline='') as file:
-    #     data = csv.reader(file)
     import csv
-    file_ = open('combined.csv', 'r')
-    data_ = csv.reader(file_)
-    print(file_)
-    print(data_)
-    for row in data_:
-        if " " in row[4]:
-            space = str(row[4]) + ' has whitespace'
-        else:
-            space = str(row[4]) + ' has no whitespace'
-    print(space)
-    return space
+    file = open('combined.csv', 'r')
+    data = csv.reader(file)
 
+    for row in data:
+        if " " in row[4].strip(' '):
+            print(str(row[4]) + ' has whitespace')
+        else:
+            print(str(row[4]) + ' has no whitespace')
+
+    return print
 
 def is_camel_case(combined):
     import csv
@@ -63,11 +55,11 @@ def is_camel_case(combined):
     data = csv.reader(file)
     for row in data:
         if row[4].islower() or row[4].isupper():
-            camel_case = str(row[4]) + " is not CamelCase"
+            print(str(row[4]) + " is not CamelCase")
         else:
-            camel_case = str(row[4]) + " is CamelCase"
-    print(camel_case)
-    return camel_case
+            print(str(row[4]) + " is CamelCase")
+
+    return print
 
 
 def write_data(csv_files):
