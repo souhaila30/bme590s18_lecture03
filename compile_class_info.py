@@ -74,12 +74,6 @@ def write_data(csv_files):
         csv = pd.read_csv(csv_file)
         csv.to_json(jsonfile)
 
-    #     reader = csv.DictReader(filtered_file)
-    #     for row in reader:
-    #         json.dump([row for row in reader])
-    #         jsonfile.write('\n')
-        # with open(filtered_file, 'r') as csv, open(jsonfile, 'w') as json:
-        #    dump(list(DictReader(csv)),json)
     return jsonfile
 
 
